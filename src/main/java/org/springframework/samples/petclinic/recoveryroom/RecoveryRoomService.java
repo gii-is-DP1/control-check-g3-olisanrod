@@ -9,29 +9,26 @@ import org.springframework.stereotype.Service;
 public class RecoveryRoomService {
 	
 	@Autowired
-	private RecoveryRoomRepository recoveryRoomRepository;
+	private RecoveryRoomRepository rep;
 	
     public List<RecoveryRoom> getAll(){
-    	List<RecoveryRoom> lista = recoveryRoomRepository.findAll();
-        return lista;
+        return this.rep.findAll();
     }
 
     public List<RecoveryRoomType> getAllRecoveryRoomTypes(){
-        return null;
+        return this.rep.findAllRecoveryRoomTypes();
     }
 
     public RecoveryRoomType getRecoveryRoomType(String typeName) {
-    	RecoveryRoomType rec = recoveryRoomRepository.getRecoveryRoomType(typeName);
-        return rec;
+        return this.rep.getRecoveryRoomType(typeName);
     }
 
     public List<RecoveryRoom> getRecoveryRoomsBiggerThan(double size) {
-    	List<RecoveryRoom> room = recoveryRoomRepository.findBySizeMoreThan(size);
-        return room;
+        return this.rep.findBySizeMoreThan(size);
     }
 
     public RecoveryRoom save(RecoveryRoom p) {
-        return null;       
+		return this.rep.save(p);	     
     }
 
     
